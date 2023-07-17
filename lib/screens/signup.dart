@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )),
                         SizedBox(
                           child: Text(
-                            'Welcome..',
+                            'Welcome...',
                             style: Styles.headLine2
                                 .copyWith(color: Styles.textColor),
                           ),
