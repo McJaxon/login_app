@@ -143,25 +143,23 @@ class _LogInScreenState extends State<LogInScreen> {
                               setState(() {
                                 loading = true;
                               });
-                              _firebaseAccess
-                                  .signIn(emailController.text,
-                                      passwordController.text)
-                                  .then((results) {
-                                if (results != null) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute<void>(
-                                      builder: (context) =>
-                                          const OpeningScreen(),
-                                    ),
-                                  );
-                                }
+                              _firebaseAccess.signIn(emailController.text,
+                                  passwordController.text);
 
+                              if (context.mounted) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                    builder: (context) => const OpeningScreen(),
+                                  ),
+                                );
+                              } else {
                                 return setState(() {
                                   error = 'could not sign in with credentials';
                                   loading = false;
                                 });
-                              });
+                              }
+
                               // print(email);
                               // print(password);
                             }

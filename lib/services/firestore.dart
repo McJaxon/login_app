@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:kuunga_app/services/isaac2.dart';
 
 class FireStoreAuth extends ChangeNotifier {
-  // final userUid = FirebaseAuth.instance.currentUser!.uid;
+  final userUid = FirebaseAuth.instance.currentUser!.uid;
   // final userEmail = FirebaseAuth.instance.currentUser!.email;
   CollectionReference chatFirestore =
       FirebaseFirestore.instance.collection('Chat Collection');
 
   Future snapShot(
       String? email, String name, String image, String date, String uid) {
-    return chatFirestore.doc().set({
+    return chatFirestore.doc(userUid).set({
       'id': FirebaseAuth.instance.currentUser!.email,
       'nickName': '',
       'image': image,

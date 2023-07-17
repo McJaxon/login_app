@@ -129,6 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 setState(() {
                                   loading = true;
                                 });
+
                                 _accessFirebase.createAccount(
                                     emailController.text,
                                     passwordController.text);

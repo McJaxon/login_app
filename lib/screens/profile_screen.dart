@@ -164,9 +164,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               setState(() {
                                 loading = true;
                               });
-                              _acccessFireStore.chatFirestore
-                                  .doc(jay!.email)
-                                  .update({
+                              _acccessFireStore.chatFirestore.doc().update({
                                 'nickName': nickNameController.text,
                               });
                               if (context.mounted) {
